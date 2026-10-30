@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Self Creation Parameter — Portfolio Submission</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #4338ca;
+      --primary-light: #eef2ff;
+      --border: #e2e8f0;
+      --text: #0f172a;
+      --muted: #475569;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background: #f8fafc;
+      color: var(--text);
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+    .page-container {
+      max-width: 850px;
+      margin: 0 auto;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      padding: 3rem;
+    }
+    .header-bar {
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1.5rem;
+    }
+    .badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--primary);
+      background: var(--primary-light);
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      margin-bottom: 0.5rem;
+    }
+    h1 {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: #1e1b4b;
+      margin-bottom: 0.25rem;
+    }
+    .subtitle {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .meta-box {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      min-width: 240px;
+    }
+    .meta-row {
+      margin-bottom: 0.35rem;
+    }
+    .meta-row:last-child {
+      margin-bottom: 0;
+    }
+    .section {
+      margin-bottom: 2.25rem;
+    }
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+      border-left: 4px solid var(--primary);
+      padding-left: 0.75rem;
+    }
+    .section-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      padding-left: 1rem;
+    }
+    .card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+      margin-left: 1rem;
+    }
+    .url-display {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      background: #eef2ff;
+      border: 1px solid #c7d2fe;
+      padding: 0.85rem 1.25rem;
+      border-radius: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.95rem;
+      color: #3730a3;
+      font-weight: 600;
+      word-break: break-all;
+    }
+    .live-status {
+      font-size: 0.75rem;
+      background: #dcfce7;
+      color: #166534;
+      border: 1px solid #86efac;
+      padding: 0.2rem 0.6rem;
+      border-radius: 9999px;
+      white-space: nowrap;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      margin-left: 1rem;
+    }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 0.75rem 1rem;
+      text-align: left;
+    }
+    th {
+      background: #f1f5f9;
+      font-weight: 700;
+      color: #334155;
+    }
+    td strong {
+      color: #1e293b;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-left: 1rem;
+    }
+    .profile-item {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .profile-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #1e293b;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .profile-link {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--primary);
+      text-decoration: underline;
+      word-break: break-all;
+    }
+    .naming-rule-box {
+      background: #fdf2f8;
+      border: 1px solid #fbcfe8;
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-top: 2rem;
+      font-size: 0.85rem;
+      color: #831843;
+    }
+    .action-bar {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      z-index: 100;
+      display: flex;
+      gap: 0.75rem;
+    }
+    .btn {
+      padding: 0.75rem 1.5rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: all 0.2s ease;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+    .btn-primary:hover {
+      background: #3730a3;
+      transform: translateY(-1px);
+    }
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+      }
+      .page-container {
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        max-width: 100%;
+      }
+      .action-bar {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="action-bar">
+    <button class="btn btn-primary" onclick="window.print()">
+      🖨️ Print / Save as PDF (&lt;enrollmentNo.pdf&gt;)
+    </button>
+  </div>
+
+  <div class="page-container">
+
+    <!-- HEADER / BANNER -->
+    <div class="header-bar">
+      <div>
+        <span class="badge">Course Evaluation Parameter</span>
+        <h1>Self Creation Parameter [Portfolio Submission]</h1>
+        <p class="subtitle">Comprehensive Verification Document & Proof of Deployment Skills</p>
+      </div>
+      <div class="meta-box">
+        <div class="meta-row"><strong>Student:</strong> Alex Morgan</div>
+        <div class="meta-row"><strong>Enrollment:</strong> 2024CS0198</div>
+        <div class="meta-row"><strong>Course:</strong> Web Engineering & UI Design</div>
+        <div class="meta-row"><strong>Date:</strong> October 2026</div>
+      </div>
+    </div>
+
+    <!-- SECTION 1: HOSTED WEBSITE URL -->
+    <div class="section">
+      <div class="section-title">1. Hosted Website URL</div>
+      <p class="section-desc">A live, clickable link to the functioning portfolio website deployed to cloud infrastructure.</p>
+      <div class="card" style="margin-bottom: 0.5rem;">
+        <div class="url-display">
+          <a href="https://alexmorgan-portfolio.vercel.app" target="_blank" style="color: inherit; text-decoration: none;">
+            https://alexmorgan-portfolio.vercel.app
+          </a>
+          <span class="live-status">● Live on Vercel</span>
+        </div>
+      </div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #64748b; margin-left: 1rem;">
+        GitHub Repository: <a href="https://github.com/alexmorgan/portfolio-master" target="_blank" style="color: #4338ca;">https://github.com/alexmorgan/portfolio-master</a>
+      </div>
+    </div>
+
+    <!-- SECTION 2: TECHNOLOGY STACK -->
+    <div class="section">
+      <div class="section-title">2. Technology Stack</div>
+      <p class="section-desc">A detailed list of all programming languages, frameworks, libraries, and hosting platforms utilized in development.</p>
+      
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 25%;">Category</th>
+            <th style="width: 35%;">Technologies Used</th>
+            <th style="width: 40%;">Purpose & Implementation Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Languages</strong></td>
+            <td>HTML5, CSS3, JavaScript (ES6+), TypeScript</td>
+            <td>Semantic page structure, modern flexbox/grid layouts, asynchronous DOM manipulation, and static type safety.</td>
+          </tr>
+          <tr>
+            <td><strong>Frontend Framework</strong></td>
+            <td>React.js (v18.x)</td>
+            <td>Component-based declarative UI architecture, modular state hooks (useState, useEffect, useMemo), and dynamic project filtering.</td>
+          </tr>
+          <tr>
+            <td><strong>Styling Library</strong></td>
+            <td>Tailwind CSS (v3.4.x)</td>
+            <td>Utility-first responsive styling, glassmorphism card themes, CSS custom properties, and seamless Dark/Light mode theme switching.</td>
+          </tr>
+          <tr>
+            <td><strong>Hosting Platforms</strong></td>
+            <td>Vercel &amp; GitHub Pages</td>
+            <td>Continuous integration &amp; deployment (CI/CD) pipelines, instant serverless asset edge caching, and global CDN delivery.</td>
+          </tr>
+          <tr>
+            <td><strong>Tooling &amp; Runtime</strong></td>
+            <td>Vite, Node.js, Git, Lucide Icons</td>
+            <td>Asset bundling, local testing preview servers, version control workflows, and vector iconography.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SECTION 3: AI TOOLS UTILIZED -->
+    <div class="section">
+      <div class="section-title">3. AI Tools Utilized</div>
+      <p class="section-desc">Explicit mention of AI assistants utilized during planning, coding, or content creation, along with a description of how they helped.</p>
+      
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 25%;">AI Assistant / Tool</th>
+            <th style="width: 25%;">Development Phase</th>
+            <th style="width: 50%;">Contribution &amp; Practical Benefits</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>ChatGPT (OpenAI GPT-4o)</strong></td>
+            <td>Planning &amp; Architecture</td>
+            <td>
+              Assisted in drafting the technical component hierarchy, outlining project case study metrics, generating sample dataset schemas, and optimizing developer README documentation.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>GitHub Copilot</strong></td>
+            <td>Coding &amp; Implementation</td>
+            <td>
+              Provided contextual inline autocompletions inside VS Code for repetitive React hooks, array filtering logic, Tailwind CSS utility class combinations, and responsive breakpoint styles.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>v0.dev (by Vercel)</strong></td>
+            <td>UI/UX Prototyping</td>
+            <td>
+              Facilitated rapid visual experimentation with glassmorphic cards, responsive drawer navigation, and accessible high-contrast color pairings before final implementation.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Google Antigravity</strong></td>
+            <td>Scaffolding &amp; Verification</td>
+            <td>
+              Served as an autonomous agentic pair programmer to scaffold project files, verify conformity with course evaluation parameters, and format this unified PDF submission report.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SECTION 4: PROFESSIONAL LINKS -->
+    <div class="section">
+      <div class="section-title">4. Professional Links</div>
+      <p class="section-desc">Clickable hyperlinks to professional online profiles integrated directly into the portfolio website.</p>
+      
+      <div class="grid-2">
+        <div class="profile-item">
+          <div class="profile-label">1. LinkedIn Profile</div>
+          <a class="profile-link" href="https://linkedin.com/in/alexmorgan-dev" target="_blank">
+            https://linkedin.com/in/alexmorgan-dev
+          </a>
+          <div style="font-size: 0.75rem; color: #64748b;">Professional network, career milestones & recommendations</div>
+        </div>
+
+        <div class="profile-item">
+          <div class="profile-label">2. GitHub Profile</div>
+          <a class="profile-link" href="https://github.com/alexmorgan" target="_blank">
+            https://github.com/alexmorgan
+          </a>
+          <div style="font-size: 0.75rem; color: #64748b;">Open-source repositories, commit history & pull requests</div>
+        </div>
+
+        <div class="profile-item">
+          <div class="profile-label">3. LeetCode Profile</div>
+          <a class="profile-link" href="https://leetcode.com/alex_code_forge" target="_blank">
+            https://leetcode.com/alex_code_forge
+          </a>
+          <div style="font-size: 0.75rem; color: #64748b;">350+ Problems Solved • DSA & algorithmic competition metrics</div>
+        </div>
+
+        <div class="profile-item">
+          <div class="profile-label">4. Behance Profile</div>
+          <a class="profile-link" href="https://behance.net/alexmorgandesign" target="_blank">
+            https://behance.net/alexmorgandesign
+          </a>
+          <div style="font-size: 0.75rem; color: #64748b;">UI/UX case studies, design systems & wireframe prototypes</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 5: FILE NAMING CONVENTION INSTRUCTIONS -->
+    <div class="naming-rule-box">
+      <strong>File Naming Convention Requirement:</strong>
+      <p style="margin-top: 0.25rem;">
+        You must submit your work as a single PDF. Filename must be strictly formatted as:
+        <span style="font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 1rem; color: #be185d; display: block; margin-top: 0.25rem;">
+          2024CS0198.pdf &nbsp;(or &lt;your_enrollmentNo&gt;.pdf)
+        </span>
+      </p>
+    </div>
+
+  </div>
+
+</body>
+</html>
